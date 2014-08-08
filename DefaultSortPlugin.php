@@ -86,7 +86,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $params['sort_field'] = get_option('defaultsort_items_option');
                     $params['sort_dir'] = get_option('defaultsort_items_direction');
 
-                    // Set the params itself, so that the correct class may be added in browse_sort_links
+                    // Set the param itself, so that the correct class may be added to the HTML output in browse_sort_links()
                     $req->setParam($sortParam, get_option('defaultsort_items_option'));
                     $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
                 }
@@ -104,8 +104,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $params['sort_field'] = get_option('defaultsort_collections_option');
                     $params['sort_dir'] = get_option('defaultsort_collections_direction');
 
-                    // Set the param itself, so that the correct class may be added in browse_sort_links
-
+                    // Set the param itself, so that the correct class may be added to the HTML output in browse_sort_links()
                     $req->setParam($sortParam, get_option('defaultsort_collections_option'));
                     $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
                 }
