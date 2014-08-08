@@ -1,4 +1,10 @@
 DefaultSort
 ===========
 
-Plugin to set the default sort for Browse Items and Browse Collections
+This plugin can be used to override the Omeka default sorting when brwosing a collection or items, which is set to `date added`. You can set it to any metadata element and also select the direction of the initial sort.
+
+#### Please note
+
+In most cases you will want to add whichever option you select in the plugin to the list of sort links in your browse views. Take a look at the Omeka default theme for an example.
+
+`/Omekaroot/themes/default/items/browse`
