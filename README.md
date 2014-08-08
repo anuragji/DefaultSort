@@ -9,6 +9,6 @@ In most cases you will want to add whichever option you select in the plugin to 
 
 `/Omekaroot/themes/default/items/browse`
 
-#### Thanks
+###### Thanks
 
 Thanks to @patrickmj from the Omeka Dev Team for the basic filter implementation.
