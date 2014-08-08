@@ -11,4 +11,4 @@ In most cases you will want to add whichever option you select in the plugin to 
 
 ###### Thanks
 
-Thanks to @patrickmj from the Omeka Dev Team for the basic filter implementation.
+Thanks to @patrickmj from the Omeka Dev Team, for the basic filter implementation.
