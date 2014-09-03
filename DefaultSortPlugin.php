@@ -32,7 +32,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
         'defaultsort_collections_direction' => 'd',
     );
 
-    protected $_filters = array('items_browse_params');
+    protected $_filters = array('items_browse_params', 'collections_browse_params');
 
     public function hookInstall()
     {
@@ -90,11 +90,25 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $req->setParam($sortParam, get_option('defaultsort_items_option'));
                     $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
                 }
-
             }
+        }
+
+        return $params;
+    }
+
+    public function filterCollectionsBrowseParams($params)
+    {
+        // Only apply to public side.
+        if (!is_admin_theme()) {
+
+            $req = Zend_Controller_Front::getInstance()->getRequest();
+            $requestParams = $req->getParams();
+
+            $sortParam = Omeka_Db_Table::SORT_PARAM;
+            $sortDirParam = Omeka_Db_Table::SORT_DIR_PARAM;
 
             // Browse Collections
-            if ($requestParams['controller'] == 'collection' && $requestParams['action'] == 'browse') {
+            if ($requestParams['controller'] == 'collections' && $requestParams['action'] == 'browse') {
                 // If no sort, sort by Dublin Core Date, ascendant.
                 if (get_option('defaultsort_collection_enabled')
                     && !isset($params['sort_field'])
@@ -109,7 +123,6 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
                 }
             }
-
         }
 
         return $params;
