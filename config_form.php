@@ -11,7 +11,7 @@
 <?php $view = get_view(); ?>
 <h2><?php echo __('Set the Default Sort'); ?></h2>
 <p><?php echo __('This plugin can be used to override the Omeka default sort which is set to');?> <em><code><?php echo __('date added'); ?></code></em></p>
-<p><b><?php echo __('Please note');?></b>: <?php echo __('In most cases you will want to add whichever option you select here to the list of sort links in your browse views. Check '); ?> <em>(see /Omekaroot/themes/default/items/browse</em> <?php echo __(' for an example.');?></p>
+<p><b><?php echo __('Please note');?></b>: <?php echo __('In most cases you will want to add whichever field you select here, to the list of sort links in your browse views. Check '); ?> <em>(see /Omekaroot/themes/default/items/browse</em> <?php echo __(' for an example.');?></p>
 
 <h3><?php echo __('Items'); ?></h3>
 <div class="field">
