@@ -48,7 +48,7 @@
 </div>
 <div class="field">
     <div class="three columns alpha">
-        <label><?php echo __('Collections Sort Direction');?></label>
+        <label><?php echo __('Items Sort Direction');?></label>
     </div>
     <div class="inputs four columns omega">
         <div class="input-block">
