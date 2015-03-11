@@ -5,7 +5,7 @@
  * @copyright   Copyright 2014 The Digital Ark, Corp.
  * @author      Anuragji
  * @license     http://www.gnu.org/licenses/gpl-3.0.txt GPLv3 or any later version
- * @package     Favorites
+ * @package     DefaultSort
  *
  */
 
@@ -86,9 +86,14 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $params['sort_field'] = get_option('defaultsort_items_option');
                     $params['sort_dir'] = get_option('defaultsort_items_direction');
 
-                    // Set the param itself, so that the correct class may be added to the HTML output in browse_sort_links()
-                    $req->setParam($sortParam, get_option('defaultsort_items_option'));
-                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+
+                    // If the items/browse page has been reached without sort_field defined in the URL
+                    // then apply the default sort from the plugin, otherwise ignore the default sort
+                    if(!isset($_GET['sort_field'])) {
+                        $req->setParam($sortParam, get_option('defaultsort_items_option'));
+                        $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+                    }
+
                 }
             }
         }
@@ -118,9 +123,12 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
                     $params['sort_field'] = get_option('defaultsort_collections_option');
                     $params['sort_dir'] = get_option('defaultsort_collections_direction');
 
-                    // Set the param itself, so that the correct class may be added to the HTML output in browse_sort_links()
-                    $req->setParam($sortParam, get_option('defaultsort_collections_option'));
-                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+                    // If the collections/browse page has been reached without sort_field defined in the URL
+                    // then apply the default sort from the plugin, otherwise ignore the default sort
+                    if(!isset($_GET['sort_field'])) {
+                        $req->setParam($sortParam, get_option('defaultsort_collections_option'));
+                        $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+                    }
                 }
             }
         }
