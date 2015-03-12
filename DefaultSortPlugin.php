@@ -77,22 +77,17 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
             // Browse Items
             if ($requestParams['controller'] == 'items' && $requestParams['action'] == 'browse') {
-                // If no sort, sort by Dublin Core Date, ascendant.
-                if (get_option('defaultsort_items_enabled')
-                    && !isset($params['sort_field'])
-                    || empty($params['sort_field'])
-                    || $params['sort_field'] == 'added'
-                ) {
+
+                // Only apply the Default Sort if enabled and no other sort has been defined
+                if (get_option('defaultsort_items_enabled') && !isset($_GET['sort_field']) ) {
+
                     $params['sort_field'] = get_option('defaultsort_items_option');
                     $params['sort_dir'] = get_option('defaultsort_items_direction');
 
 
-                    // If the items/browse page has been reached without sort_field defined in the URL
-                    // then apply the default sort from the plugin, otherwise ignore the default sort
-                    if(!isset($_GET['sort_field'])) {
-                        $req->setParam($sortParam, get_option('defaultsort_items_option'));
-                        $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
-                    }
+                    // Apply the default sort from the plugin
+                    $req->setParam($sortParam, get_option('defaultsort_items_option'));
+                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
 
                 }
             }
@@ -114,21 +109,15 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
             // Browse Collections
             if ($requestParams['controller'] == 'collections' && $requestParams['action'] == 'browse') {
-                // If no sort, sort by Dublin Core Date, ascendant.
-                if (get_option('defaultsort_collection_enabled')
-                    && !isset($params['sort_field'])
-                    || empty($params['sort_field'])
-                    || $params['sort_field'] == 'added'
-                ) {
+
+                // Only apply the Default Sort if enabled and no other sort has been defined
+                if (get_option('defaultsort_collection_enabled') && !isset($params['sort_field'])) {
                     $params['sort_field'] = get_option('defaultsort_collections_option');
                     $params['sort_dir'] = get_option('defaultsort_collections_direction');
 
-                    // If the collections/browse page has been reached without sort_field defined in the URL
-                    // then apply the default sort from the plugin, otherwise ignore the default sort
-                    if(!isset($_GET['sort_field'])) {
-                        $req->setParam($sortParam, get_option('defaultsort_collections_option'));
-                        $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
-                    }
+                    // Apply the default sort from the plugin
+                    $req->setParam($sortParam, get_option('defaultsort_collections_option'));
+                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
                 }
             }
         }
