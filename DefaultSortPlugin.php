@@ -112,12 +112,13 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
                 // Only apply the Default Sort if enabled and no other sort has been defined
                 if (get_option('defaultsort_collection_enabled') && !isset($params['sort_field'])) {
+                    
                     $params['sort_field'] = get_option('defaultsort_collections_option');
                     $params['sort_dir'] = get_option('defaultsort_collections_direction');
 
                     // Apply the default sort from the plugin
                     $req->setParam($sortParam, get_option('defaultsort_collections_option'));
-                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+                    $req->setParam($sortDirParam, get_option('defaultsort_collections_direction'));
                 }
             }
         }
