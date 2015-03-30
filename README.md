@@ -5,7 +5,7 @@ This plugin can be used to change the Omeka default sorting, which is set to `da
 
 #### Please note
 
-It would probably be a good idea, to add whichever sort field you select in the plugin, to the list of sort links in your browse views. Take a look at the Omeka default theme for an example of how this can be done:
+It would probably be a good idea to add whichever sort field you select to sort by to the list of sort links in your browse views. Take a look at the Omeka default theme for an example of how this can be done:
 
 `/Omekaroot/themes/default/items/browse`
 
