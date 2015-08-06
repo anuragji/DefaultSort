@@ -18,7 +18,8 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
         'install',
         'uninstall',
         'config',
-        'config_form'
+        'config_form',
+        'upgrade'
     );
 
     protected $_options = array(
@@ -30,6 +31,11 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
         'defaultsort_collections_enabled' => '1',
         'defaultsort_collections_option' => 'added',
         'defaultsort_collections_direction' => 'd',
+
+        'defaultsort_excluded_collections' =>'',
+        'defaultsort_excluded_collections_option'=> 'added',
+        'defaultsort_exluded_collections_direction' => 'a'
+
     );
 
     protected $_filters = array('items_browse_params', 'collections_browse_params');
@@ -46,21 +52,60 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
     public function hookConfigForm()
     {
-        $table = get_db()->getTable('Element');
-        $select = $table->getSelect()
+        // get all elements
+        $elementsTable = get_db()->getTable('Element');
+        $select = $elementsTable->getSelect()
             ->order('elements.element_set_id')
             ->order('ISNULL(elements.order)')
             ->order('elements.order');
 
-        $elements = $table->fetchObjects($select);
+        $elements = $elementsTable->fetchObjects($select);
+
+        // get all public collections
+        $collectionsTable = get_db()->getTable('Collection');
+        $collections = $collectionsTable->findBy(array('public' => 1));
+
         include 'config_form.php';
     }
 
     public function hookConfig($args)
     {
         $post = $args['post'];
+
+        // manually check exluded collections in case $_POST came back empty
+        if(!isset($post['defaultsort_excluded_collections'])) {
+            $post['defaultsort_excluded_collections'] = array();
+        }
+
         foreach($post as $key=>$value) {
+
+            // serialize our excluded collections
+            if( ($key == 'defaultsort_excluded_collections') ) {
+                $value = serialize($value);
+            }
+
             set_option($key, $value);
+        }
+    }
+
+    public function hookUpgrade($args) {
+
+        $old = $args['old_version'];
+        $new = $args['new_version'];
+
+        if(version_compare($old, $new, '<')) {
+            if(!get_option('defaultsort_excluded_collections')) {
+                $excludedCollections = array();
+                set_option('defaultsort_excluded_collections', serialize($excludedCollections));
+            }
+
+            if(!get_option('defaultsort_excluded_collections_option')) {
+                set_option('defaultsort_excluded_collections_option', 'added');
+            }
+
+            if(!get_option('defaultsort_exluded_collections_direction')) {
+                set_option('defaultsort_exluded_collections_direction', 'a');
+            }
         }
     }
 
@@ -75,19 +120,37 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
             $sortParam = Omeka_Db_Table::SORT_PARAM;
             $sortDirParam = Omeka_Db_Table::SORT_DIR_PARAM;
 
+            if(isset($params['collection'])) {
+                // When browsing items from a specific collection
+                $collectionId = $params['collection'];
+                $exludedCollections = unserialize(get_option('defaultsort_excluded_collections'));
+            }
+
             // Browse Items
             if ($requestParams['controller'] == 'items' && $requestParams['action'] == 'browse') {
 
                 // Only apply the Default Sort if enabled and no other sort has been defined
                 if (get_option('defaultsort_items_enabled') && !isset($_GET['sort_field']) ) {
 
-                    $params['sort_field'] = get_option('defaultsort_items_option');
-                    $params['sort_dir'] = get_option('defaultsort_items_direction');
+                    // See if there are any exceptions specified
+                    if(in_array($collectionId, $exludedCollections)) {
 
+                        // Use modified sort for exluded collections
+                        $newSortField = get_option('defaultsort_excluded_collections_option');
+                        $newSortDir = get_option('defaultsort_exluded_collections_direction');
+
+                    } else {
+                        // Use default specified for items
+                        $newSortField = get_option('defaultsort_items_option');
+                        $newSortDir = get_option('defaultsort_items_direction');
+                    }
+
+                    $params['sort_field'] = $newSortField;
+                    $params['sort_dir'] = $newSortDir;
 
                     // Apply the default sort from the plugin
-                    $req->setParam($sortParam, get_option('defaultsort_items_option'));
-                    $req->setParam($sortDirParam, get_option('defaultsort_items_direction'));
+                    $req->setParam($sortParam, $newSortField);
+                    $req->setParam($sortDirParam, $newSortField);
 
                 }
             }
@@ -100,6 +163,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
     {
         // Only apply to public side.
         if (!is_admin_theme()) {
+            $foo = $params;
 
             $req = Zend_Controller_Front::getInstance()->getRequest();
             $requestParams = $req->getParams();
@@ -112,7 +176,6 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
                 // Only apply the Default Sort if enabled and no other sort has been defined
                 if (get_option('defaultsort_collection_enabled') && !isset($params['sort_field'])) {
-                    
                     $params['sort_field'] = get_option('defaultsort_collections_option');
                     $params['sort_dir'] = get_option('defaultsort_collections_direction');
 
