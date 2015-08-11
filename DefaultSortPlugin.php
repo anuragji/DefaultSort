@@ -119,6 +119,10 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
             $sortParam = Omeka_Db_Table::SORT_PARAM;
             $sortDirParam = Omeka_Db_Table::SORT_DIR_PARAM;
+			
+			// Default values
+			$exludedCollections = array();
+			$collectionId = null;
 
             if(isset($params['collection'])) {
                 // When browsing items from a specific collection
