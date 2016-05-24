@@ -167,8 +167,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
     {
         // Only apply to public side.
         if (!is_admin_theme()) {
-            $foo = $params;
-
+        	
             $req = Zend_Controller_Front::getInstance()->getRequest();
             $requestParams = $req->getParams();
 
