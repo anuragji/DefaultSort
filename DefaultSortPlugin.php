@@ -155,7 +155,7 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 
 			    // Apply the default sort from the plugin
 			    $req->setParam($sortParam, $newSortField);
-			    $req->setParam($sortDirParam, $newSortField);
+			    $req->setParam($sortDirParam, $newSortDir);
 
 			}
 		    }
