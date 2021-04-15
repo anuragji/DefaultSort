@@ -23,4 +23,5 @@ It would probably be a good idea to add whichever sort field you select to sort 
 ### Thanks
 
 Thanks to @patrickmj from the Omeka Dev Team, for the basic filter implementation.
+
 Thanks to @dbinaghi for fixing filter issues after changes in Omeka.
