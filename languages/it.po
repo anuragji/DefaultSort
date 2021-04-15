@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config_form.php:16
-msgid "This plugin can be used to override Omeka\'s default sort criteria, which is set to %s."
+msgid "This plugin can be used to override Omeka's default sort criteria, which is set to %s."
 msgstr ""
 "Questo plugin può essere usato per sostituire il criterio di ordinamento predefinito di"
 "Omeka, attualmente %s."
@@ -121,7 +121,7 @@ msgstr "Collezioni escluse"
 #: config_form.php:130
 msgid ""
 "This set of options allows you to specify a different Items sort when browsing items that "
-"are part of specific public Collections. For instance, you might want to display one Collection\'s "
+"are part of specific public Collections. For instance, you might want to display one Collection's "
 "Items in chronological order, while all other Items should be sorted by Title."
 msgstr ""
 "Questo insieme di opzioni permette di specificare un criterio di ordinamento differente per "
