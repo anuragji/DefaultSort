@@ -9,114 +9,109 @@ msgstr ""
 "Report-Msgid-Bugs-To: "
 "POT-Creation-Date: 2021-04-15 14:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Daniele Binaghi <admin@bitoteko.it>\n"
-"Language-Team: Italian <LL@li.org>\n"
-"Language: it\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+
 #: config_form.php:16
 msgid "This plugin can be used to override Omeka\'s default sort criteria, which is set to %s."
 msgstr ""
-"Questo plugin può essere usato per sostituire il criterio di ordinamento predefinito di"
-"Omeka, attualmente %s."
 
 #: config_form.php:17
 msgid "You can also specify Collections whose Items are to be excluded or can have their own sort."
 msgstr ""
-"Puoi anche specificare collezioni i cui documenti vadano esclusi o possano seguire un "
-"ordinamento differente."
 
 #: config_form.php:21
 msgid "Please note"
-msgstr "Attenzione"
+msgstr ""
 
 #: config_form.php:21
 msgid ""
 "in most cases, you will want to add whichever field you select here to the list of sort links "
 "in your browse views; check the %s file for an example."
 msgstr ""
-"nella maggior parte dei casi, sarà bene aggiungere i campi qui selezionati alla lista dei "
-"collegamenti di ordinamento presente nelle pagine browse; vedi il file %s per un esempio."
 
 #: config_form.php:24
 msgid "Items"
-msgstr "Documenti"
+msgstr ""
 
 #: config_form.php:28
 msgid "Enable for Items"
-msgstr "Abilita per i documenti"
+msgstr ""
 
 #: config_form.php:32
 msgid "If checked, applies the new default sort to Items."
-msgstr "Se selezionata, applica il nuovo criterio di ordinamento ai documenti."
+msgstr ""
 
 #: config_form.php:40
 #: config_form.php:92
 #: config_form.php:167
 msgid "Sort Field"
-msgstr "Campo ordinamento"
+msgstr ""
 
 #: config_form.php:44
 msgid "Choose the field all Items will be sorted by."
-msgstr "Scegli il campo in base al quale tutti i documenti verrano ordinati."
+msgstr ""
 
 #: config_form.php:47
 #: config_form.php:99
 #: config_form.php:174
 msgid "Please select"
-msgstr "Scegli"
+msgstr ""
 
 #: config_form.php:50
 #: config_form.php:102
 #: config_form.php:177
 msgid "Date Added"
-msgstr "Data aggiunta"
+msgstr ""
 
 #: config_form.php:64
 #: config_form.php:116
 #: config_form.php:191
 msgid "Sort Direction"
-msgstr "Direzione ordinamento"
+msgstr ""
 
 #: config_form.php:68
 #: config_form.php:120
 #: config_form.php:195
 msgid "Choose the sorting direction."
-msgstr "Scegli la direzione di ordinamento."
+msgstr ""
 
 #: config_form.php:71
 #: config_form.php:123
 #: config_form.php:198
 msgid "Ascending"
-msgstr "Ascendente"
+msgstr ""
 
 #: config_form.php:72
 #: config_form.php:124
 #: config_form.php:199
 msgid "Descending"
-msgstr "Discendente"
+msgstr ""
 
 #: config_form.php:76
 msgid "Collections"
-msgstr "Collezioni"
+msgstr ""
 
 #: config_form.php:80
 msgid "Enable for Collections"
-msgstr "Abilita per le collezioni"
+msgstr ""
 
 #: config_form.php:84
 msgid "If checked, applies the new default sort to Collections."
-msgstr "Se selezionata, applica il nuovo criterio di ordinamento alle collezioni."
+msgstr ""
 
 #: config_form.php:96
 msgid "Choose the field all Collections will be sorted by."
-msgstr "Scegli il campo in base al quale tutti le collezioni verrano ordinati."
+msgstr ""
 
 #: config_form.php:128
 msgid "Excluded Collections"
-msgstr "Collezioni escluse"
+msgstr ""
 
 #: config_form.php:130
 msgid ""
@@ -124,19 +119,15 @@ msgid ""
 "are part of specific public Collections. For instance, you might want to display one Collection\'s "
 "Items in chronological order, while all other Items should be sorted by Title."
 msgstr ""
-"Questo insieme di opzioni permette di specificare un criterio di ordinamento differente per "
-"documenti parte di specifiche collezioni pubbliche. Per esempio, si potrebbe voler mostrare i "
-"documenti di una collezione in ordine cronologico, mentre tutti gli altri documenti in ordine "
-"per titolo."
 
 #: config_form.php:134
 msgid "Collections to exclude"
-msgstr "Collezioni da escludere"
+msgstr ""
 
 #: config_form.php:141
 msgid "There are no public Collections at the moment."
-msgstr "Non ci sono al momento collezioni pubbliche."
+msgstr ""
 
 #: config_form.php:171
 msgid "Choose the field all Items belonging to excluded Collections will be sorted by."
-msgstr "Scegli il campo in base al quale tutti i documenti di collezioni escluse verrano ordinati."
+msgstr ""
