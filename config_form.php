@@ -14,7 +14,7 @@
 
 <p>
 	<?php echo __('This plugin can be used to override Omeka\'s default sort criteria, which is set to %s.', '<em><code>' . __('date added') . '</code></em>');?>
-	<?php echo __('You can also specify collections whose Items are to be excluded or can have their own sort.');?>
+	<?php echo __('You can also specify Collections whose Items are to be excluded or can have their own sort.');?>
 </p>
 
 <p>
@@ -47,7 +47,7 @@
 			<option value=""><?php echo __('Please select'); ?></option>
 			<?php $currentItemsSort =  get_option('defaultsort_items_option'); ?>
 
-			<option value="added" <?php if($currentItemsSort == 'added') { echo 'selected'; }?>><?php echo __('Date Added'); ?></option>
+			<option value="added" <?php if ($currentItemsSort == 'added') echo 'selected'; ?>><?php echo __('Date Added'); ?></option>
 			<?php
 			foreach ($elements as $element) :
 				$val = $allElements[]=$element->set_name . ',' . $element->name;
