@@ -1,0 +1,133 @@
+# Translation for the DefaultSort plugin for Omeka.
+# This file is distributed under the same license as the DefaultSort package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: DefaultSort\n"
+"Report-Msgid-Bugs-To: "
+"POT-Creation-Date: 2021-04-15 14:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: config_form.php:16
+msgid "This plugin can be used to override Omeka's default sort criteria, which is set to %s."
+msgstr ""
+
+#: config_form.php:17
+msgid "You can also specify Collections whose Items are to be excluded or can have their own sort."
+msgstr ""
+
+#: config_form.php:21
+msgid "Please note"
+msgstr ""
+
+#: config_form.php:21
+msgid ""
+"in most cases, you will want to add whichever field you select here to the list of sort links "
+"in your browse views; check the %s file for an example."
+msgstr ""
+
+#: config_form.php:24
+msgid "Items"
+msgstr ""
+
+#: config_form.php:28
+msgid "Enable for Items"
+msgstr ""
+
+#: config_form.php:32
+msgid "If checked, applies the new default sort to Items."
+msgstr ""
+
+#: config_form.php:40
+#: config_form.php:92
+#: config_form.php:167
+msgid "Sort Field"
+msgstr ""
+
+#: config_form.php:44
+msgid "Choose the field all Items will be sorted by."
+msgstr ""
+
+#: config_form.php:47
+#: config_form.php:99
+#: config_form.php:174
+msgid "Please select"
+msgstr ""
+
+#: config_form.php:50
+#: config_form.php:102
+#: config_form.php:177
+msgid "Date Added"
+msgstr ""
+
+#: config_form.php:64
+#: config_form.php:116
+#: config_form.php:191
+msgid "Sort Direction"
+msgstr ""
+
+#: config_form.php:68
+#: config_form.php:120
+#: config_form.php:195
+msgid "Choose the sorting direction."
+msgstr ""
+
+#: config_form.php:71
+#: config_form.php:123
+#: config_form.php:198
+msgid "Ascending"
+msgstr ""
+
+#: config_form.php:72
+#: config_form.php:124
+#: config_form.php:199
+msgid "Descending"
+msgstr ""
+
+#: config_form.php:76
+msgid "Collections"
+msgstr ""
+
+#: config_form.php:80
+msgid "Enable for Collections"
+msgstr ""
+
+#: config_form.php:84
+msgid "If checked, applies the new default sort to Collections."
+msgstr ""
+
+#: config_form.php:96
+msgid "Choose the field all Collections will be sorted by."
+msgstr ""
+
+#: config_form.php:128
+msgid "Excluded Collections"
+msgstr ""
+
+#: config_form.php:130
+msgid ""
+"This set of options allows you to specify a different Items sort when browsing items that "
+"are part of specific public Collections. For instance, you might want to display one Collection's "
+"Items in chronological order, while all other Items should be sorted by Title."
+msgstr ""
+
+#: config_form.php:134
+msgid "Collections to exclude"
+msgstr ""
+
+#: config_form.php:141
+msgid "There are no public Collections at the moment."
+msgstr ""
+
+#: config_form.php:171
+msgid "Choose the field all Items belonging to excluded Collections will be sorted by."
+msgstr ""
