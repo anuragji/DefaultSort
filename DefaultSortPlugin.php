@@ -123,6 +123,12 @@ class DefaultSortPlugin extends Omeka_Plugin_AbstractPlugin
 			$exludedCollections = array();
 			$collectionId = null;
 
+			if (isset($params['collection'])) {
+				// When browsing items from a specific collection
+				$collectionId = $params['collection'];
+				$exludedCollections = unserialize(get_option('defaultsort_excluded_collections'));
+			}
+
 			// Browse Items
 			if (array_key_exists('controller',$params) & array_key_exists('action',$params)) {
 				if ($requestParams['controller'] == 'items' && $requestParams['action'] == 'browse') {
